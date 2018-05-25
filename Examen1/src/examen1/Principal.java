@@ -420,7 +420,11 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-       
+        tf_nombre = Nnombre;
+        tf_edad = Nedad;
+        tf_correo = Ncorreo;
+        tf_usuario = Nusuario;
+        tf_contra = Ncontra;
     }//GEN-LAST:event_jButton5MouseClicked
 
     /**
