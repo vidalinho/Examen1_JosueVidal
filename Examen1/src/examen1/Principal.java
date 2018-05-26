@@ -450,8 +450,8 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void inicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicioMouseClicked
-        for (int i = 0; 1 < users.size(); i++) {
-            if (users.get(i).getContra().equals(jt_contra.getText()) && users.get(i).getUsuario().equals(login.getText())) {
+      //  for (int i = 0; 1 < users.size(); i++) {       
+      //      if (users.get(i).getContra().equals(jt_contra.getText()) && users.get(i).getUsuario().equals(login.getText())) {     validacion que valida si tiene la contra y usuario correcto pero no deja entrar al programa
                 Nnombre.setText(tf_nombre.getText());
                 Nedad.setText(tf_edad.getText());
                 Ncorreo.setText(tf_correo.getText());
@@ -461,10 +461,10 @@ public class Principal extends javax.swing.JFrame {
                 jd_logeado.pack();
                 jd_logeado.setLocationRelativeTo(this);
                 jd_logeado.setVisible(true);
-            } else {
-                JOptionPane.showMessageDialog(this, "La contrasena o el usuario esta incorrecto");
-            }
-        }
+          //  } else {
+           //     JOptionPane.showMessageDialog(this, "La contrasena o el usuario esta incorrecto");
+         //   }
+     //   }
     }//GEN-LAST:event_inicioMouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
@@ -499,6 +499,7 @@ public class Principal extends javax.swing.JFrame {
         Ncorreo.setText(tf_correo.getText());
         Nusuario.setText(tf_edad.getText());
         Ncontra.setText(tf_contra.getText());
+        users.add(new Usuarios());
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void crearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearMouseClicked
