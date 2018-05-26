@@ -6,6 +6,7 @@
 package examen1;
 
 import javax.swing.JOptionPane;
+import java.util.*;
 
 /**
  *
@@ -45,7 +46,7 @@ public class Principal extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         tf_contra = new javax.swing.JTextField();
         jd_logeado = new javax.swing.JDialog();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        vis = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -65,13 +66,13 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         ta_codigo = new javax.swing.JTextArea();
         jLabel16 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        crear = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        inicio = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jt_usuario = new javax.swing.JTextField();
+        login = new javax.swing.JTextField();
         jt_contra = new javax.swing.JPasswordField();
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -174,6 +175,12 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(52, 52, 52))
         );
 
+        vis.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                visMouseClicked(evt);
+            }
+        });
+
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel9.setText("Perfil");
 
@@ -194,15 +201,20 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        Nnombre.setText("jTextField1");
+        Nnombre.setText("ingrese nombre");
+        Nnombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NnombreActionPerformed(evt);
+            }
+        });
 
-        Nedad.setText("jTextField2");
+        Nedad.setText("Ingrese edad");
 
-        Ncorreo.setText("jTextField3");
+        Ncorreo.setText("Ingrese correo");
 
-        Nusuario.setText("jTextField4");
+        Nusuario.setText("Ingrese usuario");
 
-        Ncontra.setText("jTextField5");
+        Ncontra.setText("Ingrese contrasena");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -220,11 +232,11 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(jLabel14))
                         .addGap(46, 46, 46)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Nnombre, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                            .addComponent(Nnombre)
                             .addComponent(Nedad)
                             .addComponent(Ncorreo)
                             .addComponent(Nusuario)
-                            .addComponent(Ncontra)))
+                            .addComponent(Ncontra, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(326, 326, 326)
                         .addComponent(jLabel9))
@@ -266,7 +278,7 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(35, 35, 35))
         );
 
-        jTabbedPane1.addTab("Perfil", jPanel1);
+        vis.addTab("Perfil", jPanel1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -279,7 +291,7 @@ public class Principal extends javax.swing.JFrame {
             .addGap(0, 560, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("VIsualizar", jPanel2);
+        vis.addTab("VIsualizar", jPanel2);
 
         jPanel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 
@@ -292,10 +304,10 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel16.setText("Codigo deseado:");
 
-        jButton6.setText("Crear");
-        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+        crear.setText("Crear");
+        crear.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton6MouseClicked(evt);
+                crearMouseClicked(evt);
             }
         });
 
@@ -316,27 +328,28 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(248, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton6)
+                .addComponent(crear)
                 .addGap(75, 75, 75))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jLabel15)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(jLabel15)
                         .addGap(131, 131, 131)
-                        .addComponent(jLabel16))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
-                .addComponent(jButton6)
+                        .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addContainerGap(196, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(86, 86, 86)))
+                .addComponent(crear)
                 .addGap(31, 31, 31))
         );
 
-        jTabbedPane1.addTab("Ejecutar", jPanel3);
+        vis.addTab("Ejecutar", jPanel3);
 
         jButton3.setText("Cerrar Sesion");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -351,7 +364,7 @@ public class Principal extends javax.swing.JFrame {
             jd_logeadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_logeadoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addComponent(vis)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_logeadoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -362,7 +375,7 @@ public class Principal extends javax.swing.JFrame {
             jd_logeadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_logeadoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addComponent(vis)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton3)
                 .addContainerGap())
@@ -374,15 +387,15 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel2.setText("Contraseña");
 
-        jButton1.setText("Iniciar Sesion");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        inicio.setText("Iniciar Sesion");
+        inicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                inicioMouseClicked(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        inicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                inicioActionPerformed(evt);
             }
         });
 
@@ -409,9 +422,9 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1)
+                            .addComponent(inicio)
                             .addComponent(jt_contra)
-                            .addComponent(jt_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
+                            .addComponent(login, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
                         .addGap(0, 67, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -421,13 +434,13 @@ public class Principal extends javax.swing.JFrame {
                 .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jt_contra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
-                .addComponent(jButton1)
+                .addComponent(inicio)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addContainerGap())
@@ -436,13 +449,23 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
-        jd_logeado.setModal(true);
-        jd_logeado.pack();
-        jd_logeado.setLocationRelativeTo(this);
-        jd_logeado.setVisible(true);
-    }//GEN-LAST:event_jButton1MouseClicked
+    private void inicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inicioMouseClicked
+        for (int i = 0; 1 < users.size(); i++) {
+            if (users.get(i).getContra().equals(jt_contra.getText()) && users.get(i).getUsuario().equals(login.getText())) {
+                Nnombre.setText(tf_nombre.getText());
+                Nedad.setText(tf_edad.getText());
+                Ncorreo.setText(tf_correo.getText());
+                Nusuario.setText(tf_edad.getText());
+                Ncontra.setText(tf_contra.getText());
+                jd_logeado.setModal(true);
+                jd_logeado.pack();
+                jd_logeado.setLocationRelativeTo(this);
+                jd_logeado.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this, "La contrasena o el usuario esta incorrecto");
+            }
+        }
+    }//GEN-LAST:event_inicioMouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
@@ -457,12 +480,12 @@ public class Principal extends javax.swing.JFrame {
         jd_logeado.dispose();
     }//GEN-LAST:event_jButton3MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioActionPerformed
+
+    }//GEN-LAST:event_inicioActionPerformed
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-        Usuarios s = new Usuarios();
+        s = new Usuarios();
         s.setNombre(tf_nombre.getText());
         s.setEdad(Integer.parseInt(tf_edad.getText()));
         s.setCorreo(tf_correo.getText());
@@ -471,22 +494,57 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-        tf_nombre = Nnombre;
-        tf_edad = Nedad;
-        tf_correo = Ncorreo;
-        tf_usuario = Nusuario;
-        tf_contra = Ncontra;
+        Nnombre.setText(tf_nombre.getText());
+        Nedad.setText(tf_edad.getText());
+        Ncorreo.setText(tf_correo.getText());
+        Nusuario.setText(tf_edad.getText());
+        Ncontra.setText(tf_contra.getText());
     }//GEN-LAST:event_jButton5MouseClicked
 
-    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+    private void crearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearMouseClicked
         if (ta_codigo.getText().contains("Create class")) {
             String nclase = ta_codigo.getText();
+            nclase.replaceAll(" ", "");
+            nclase.substring(11, nclase.length() - 1);
+            Usuarios s = new Usuarios();
+            s.clases.add(new Clase(nclase));
+        }
+        if (ta_codigo.getText().contains("Modify class")) {
+            String nclase = ta_codigo.getText();
+            nclase.replaceAll(" ", "");
             nclase.substring(12, nclase.length() - 1);
-            
+
+            s.clases.add(new Clase(nclase));
+        }
+        if (ta_codigo.getText().contains("Delete class")) {
+            String nclase = ta_codigo.getText();
+            nclase.replaceAll(" ", "");
+            nclase.substring(11, nclase.length() - 1);
+
+            for (int i = 0; i < s.clases.size(); i++) {
+                if (s.clases.get(i).getClase().equals(nclase)) {
+                    s.clases.remove(i);
+                }
+            }
+
         } else {
             JOptionPane.showMessageDialog(this, "El codigo ingresado no es correcto");
         }
-    }//GEN-LAST:event_jButton6MouseClicked
+    }//GEN-LAST:event_crearMouseClicked
+
+    private void NnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NnombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NnombreActionPerformed
+
+    private void visMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_visMouseClicked
+        if (vis.getSelectedIndex() == 1) {
+            ta_codigo.setText("");
+            Clase m = new Clase();
+            for (int i = 0; i < s.clases.size(); i++) {
+                ta_codigo.append(s.clases.get(i) + "\n");
+            }
+        }
+    }//GEN-LAST:event_visMouseClicked
 
     /**
      * @param args the command line arguments
@@ -529,12 +587,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField Nedad;
     private javax.swing.JTextField Nnombre;
     private javax.swing.JTextField Nusuario;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton crear;
+    private javax.swing.JButton inicio;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -555,16 +613,19 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JDialog jd_logeado;
     private javax.swing.JDialog jd_registrar;
     private javax.swing.JPasswordField jt_contra;
-    private javax.swing.JTextField jt_usuario;
+    private javax.swing.JTextField login;
     private javax.swing.JTextArea ta_codigo;
     private javax.swing.JTextField tf_contra;
     private javax.swing.JTextField tf_correo;
     private javax.swing.JTextField tf_edad;
     private javax.swing.JTextField tf_nombre;
     private javax.swing.JTextField tf_usuario;
+    private javax.swing.JTabbedPane vis;
     // End of variables declaration//GEN-END:variables
+ArrayList<Usuarios> users = new ArrayList();
+    Usuarios s = new Usuarios();
+    Clase m = new Clase();
 }

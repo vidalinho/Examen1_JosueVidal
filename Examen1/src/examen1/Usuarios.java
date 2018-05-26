@@ -18,7 +18,7 @@ public class Usuarios {
     private String correo;
     private String usuario;
     private String contra;
-    ArrayList clases = new ArrayList();
+    ArrayList<Clase> clases = new ArrayList();
 
     public Usuarios() {
     }

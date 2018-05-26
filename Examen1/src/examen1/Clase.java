@@ -15,6 +15,10 @@ public class Clase {
     private String metodos;
     private String atributos;
 
+    public Clase() {
+    }
+    
+
     public Clase(String clase) {
         this.clase = clase;
     }
